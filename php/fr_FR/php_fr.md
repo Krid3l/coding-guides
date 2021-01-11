@@ -87,7 +87,7 @@ function proveExistanceOfUnicorns() { /* ... */ }
 class DubiousProcessWorker() { /* ... */ }  
   
 // Les constantes, ainsi que les variables dont la valeur ne doit pas changer, sont en MAJUSCULES_AVEC_UNDERSCORES
-define("EPIC_NUMBER", 1337);
+define('EPIC_NUMBER', 1337);
 ```  
   
 En cas de doute, privilégier la nomenclature snake_case.
@@ -117,7 +117,7 @@ foreach (scandir('/home/foo/bar') as $file) {
     }
 }  
   
-// ...sauf lors de l'appel d'une fonction où l'espace précesseur est abandonné  
+// ...sauf lors de l'appel d'une fonction où l'espace prédécesseur est abandonné  
 someAwesomeFunc();
 ```  
   
@@ -157,7 +157,7 @@ La délcaration des fonctions doit suivre, de manière générale, le schéma su
 
 ```php
 public function croissantCatapult(int croissant_amount, float angle = 0.0, float force) : bool {
-    echo "Hon hon hon, it rains viennoiseries!";
+    echo 'Hon hon hon, it rains viennoiseries!';
     $shot_data = fireCatapult();
 
     return $shot_data->target_hit;
@@ -175,7 +175,7 @@ public function croissantCatapult(
  float force_applied,
  bool monitor_shot_efficiency,
  array params_for_next_shot) : bool {
-    echo "Hon hon hon, it rains viennoiseries!";
+    echo 'Hon hon hon, it rains viennoiseries!';
     $shot_data = fireCatapult();
 
     return $shot_data->target_hit;
@@ -221,7 +221,7 @@ Toujours mettre les tags d'ouverture et de fermeture sur leur propre ligne, et a
 <?php  
   
 function saySomethingStupid() {
-    echo "Limoncello tastes awful.";
+    echo 'Limoncello tastes awful.';
 }
 
 saySomethingStupid();
@@ -243,12 +243,12 @@ Si besoin, tranchez l'instruction ou la déclaration avec des retours à la lign
 
 ## 8. Utilisation des guillemets
 
-Les doubles guillemets doivent être utilisés la plupart du temps, notamment lors de la définition de chaînes de caractères ( `"coucou"` ) ou de la définition de constantes. En revanche, dans les cas où votre chaîne littérale est de longueur 1, utilisez de simples guillemets ( `'E'` ).  
+Les simples guillemets doivent être utilisés la plupart du temps, notamment lors de la définition de chaînes de caractères ( `'coucou'` ) ou de la définition de constantes. En revanche, dans les cas où vous avez besoin de conserver les séquences d'échappement, utilisez des doubles guillemets ( `"coucou\n"` ).  
   
   
 ## 9. Alias et capitalisation des opérateurs et mots-clés  
   
-Tous les mots-clés de PHP utilisés dans notre code, y compris **true**, **false** et **null**.  
+Tous les mots-clés de PHP utilisés dans notre code, y compris **true**, **false** et **null** doivent être écrits en minuscules.  
   
 Les opérateurs logiques ne doivent pas être écrits en anglais - Préférer leurs homologues formés avec des caractères spéciaux.
 
@@ -275,16 +275,16 @@ class HTML_Upload_Error */
 class AMoreCompleteExample
 {
     public $counter;                // propriété publique
-    function connect();             /**
-    function getData();             * méthodes publiques
-    function buildSomeWidget();     */
+    function connect();             //
+    function getData();             // méthodes publiques
+    function buildSomeWidget();     //
 
     protected $query;               // propriété protégée
     protected function sendQuery(); // méthode protégée
 
-    private $_status;               /**
-    private function _sort();       * méthodes privées
-    private function _initTree();   */  
+    private $_status;               //
+    private function _sort();       // méthodes privées
+    private function _initTree();   //  
   
     // ... 
 ```  
