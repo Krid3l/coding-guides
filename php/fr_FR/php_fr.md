@@ -263,28 +263,28 @@ if (($cond1 || $cond2->attr) && cond3())  { /* ... */ }
 
 ## 10. Classes  
   
-Respectez le modèle suivant lors de la déclaration de vos classes (merci au guide de style PHP du MIT) :
+Respectez si possible le modèle suivant lors de la déclaration de vos classes (merci au guide de style PHP du MIT) :
 
 ```php  
 <?php
 
-class Log               /** 
-class Net_Finger        * respect du modèle hiérarchique PEAR
-class HTML_Upload_Error */
+class Log               // 
+class Net_Finger        // exemple avec modèle hiérarchique PEAR
+class HTML_Upload_Error //
 
 class AMoreCompleteExample
 {
     public $counter;                // propriété publique
-    function connect();             //
+    function connect();             // - - -
     function getData();             // méthodes publiques
-    function buildSomeWidget();     //
+    function buildSomeWidget();     // - - -
 
     protected $query;               // propriété protégée
     protected function sendQuery(); // méthode protégée
 
-    private $_status;               //
+    private $_status;               // - - -
     private function _sort();       // méthodes privées
-    private function _initTree();   //  
+    private function _initTree();   // - - -
   
     // ... 
 ```  
@@ -293,8 +293,6 @@ Les propriétés et méthodes privées sont, par convention, précédées d'un u
 
 
 ## 11. Requêtes SQL  
-  
-Merci là encore au guide de style PHP du MIT.
 
 Les mots-clés SQL sont **toujours en majuscules** : SELECT, INSERT, UPDATE, WHERE, AS, JOIN, ON, IN, etc.  
   
