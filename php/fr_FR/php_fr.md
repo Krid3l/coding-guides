@@ -63,7 +63,7 @@ if (thing) {
   
 ```
   
-Rationale : Le premier bout de code a une esthétique discutable, et le deuxième demande l'ajout tardif d'accolades si une deuxième instruction arrive plus tard.  
+Rationale : Le premier bout de code a une lisibilité discutable, et le deuxième demande l'ajout tardif d'accolades si une deuxième instruction arrive plus tard.  
   
 Ces règles n'excluent pas l'utilisation des opérateurs ternaires, dont l'usage est à l'appréciation de chacun selon la situation :  
   
@@ -74,14 +74,16 @@ $cake_is_lie = glados() ? true : false;
 
 ## 2. Conventions de nommage  
   
-De manière générale, donnez des noms descriptifs sans qu'ils soient trop longs.
+De manière générale, donnez des noms descriptifs. Une certaine longueur des identifiants est tolérée, mais essayez de rester concis.
+
+Concernant les variantes visuelles :
 
 ```php
 // Les variables et noms de fichiers sont en snake_case  
-$lookout_for_long_var_names = 42;  
+$overused_joke = 42;  
   
 // Les identifiants de fonctions sont en camelCase  
-function proveExistanceOfUnicorns() { /* ... */ }
+function proveThatCthulhuExists() { /* ... */ }
   
 // Les identifiants de classes sont en PascalCase
 class DubiousProcessWorker() { /* ... */ }  
@@ -90,7 +92,7 @@ class DubiousProcessWorker() { /* ... */ }
 define('EPIC_NUMBER', 1337);
 ```  
   
-En cas de doute, privilégier la nomenclature snake_case.
+En cas de doute, privilégier la nomenclature en `snake_case`.
 
 
 ## 3. Espacement, tabulations et sauts de ligne
@@ -121,7 +123,7 @@ foreach (scandir('/home/foo/bar') as $file) {
 someAwesomeFunc();
 ```  
   
-Les sauts de ligne sont tolérés au sein d'un bloc - quel qu'il soit - à des fins d'aération du code. Préférez de telles séparations entre des ensembles d'instructions. **Sauf** si c'est immédiatement après son ouverture :  
+Les sauts de ligne sont tolérés au sein d'un bloc - quel qu'il soit - à des fins d'aération du code. Préférez de telles séparations entre des ensembles d'instructions. **Sauf** si c'est immédiatement après son ouverture, dans ce cas n'en mettez aucune :  
   
 ```php    
 // Dégueu
@@ -136,9 +138,9 @@ function candyFactory() {
 }
 ```
 
-Exemple typique de saut de ligne justifié : Avant un return, si le return n'est pas la seule instruction de la fonction. Exemple dans la section 4 (Fonctions).
+Exemple typique de saut de ligne justifié : Avant un return, si le return n'est pas la seule instruction de la fonction.
 
-Dans la mesure du possible, et si l'impact esthétique n'en est pas frappant, les groupes d'affectation devraient être alignés à partir de l'opérateur :
+Dans la mesure du possible, et si l'impact esthétique sur le code n'en est pas frappant, les groupes d'affectation devraient être alignés à partir de l'opérateur :
 
 ```php
 $cursor         = 0;
@@ -146,9 +148,18 @@ $bbq_temp       = 120.0;
 $ingredients    = fetchMeats();
 ```
 
-Lorsque les paramètres d'une fonction sont définis ou que des arguments sont transmis lors d'un appel de fonction, mettre **uniquement un espace après les virgules** séparant les paramètres / arguments.
+Lorsque les paramètres d'une fonction sont définis ou que des arguments sont transmis lors d'un appel de fonction, mettre **uniquement un espace après les virgules** séparant les paramètres / arguments. Exemple dans la section suivante.
 
 Pour finir, il convient de se limiter à **une instruction par ligne**.
+
+```php
+// Au secours !
+grndCtrlToMjrTom(); grade_made = true;
+
+// Ah, merci.
+grndCtrlToMjrTom();
+grade_made = true;
+```
   
 
 ## 4. Fonctions  
@@ -185,7 +196,7 @@ public function croissantCatapult(
 
 ## 5. Commentaires
 
-Lorsque le code est annoté au sein d'une fonction ou sur la même ligne qu'une instruction, les commentaires en ligne simples ( `//` ) sont à privilégier.  
+Lorsque le code est annoté au sein d'une fonction ou sur la même ligne qu'une instruction, les commentaires en ligne simple ( `//` ) sont à privilégier.  
   
 Si vous commentez une fonction ou que vous rédigez un court pavé explicatif, utilisez plutôt un commentaire multiligne ( `/* */` ) de style Docblock, comme illustré ci-dessous. Vous n'êtes pas obligé d'utiliser les identifiants Docblock tels que `@param` et `@return`, sauf si vous les jugez utiles pour décrire plus précisément le fonctionnement de grosses fonctions par exemple.
 
@@ -234,7 +245,7 @@ saySomethingStupid();
 
 ## 7. Longueur des lignes
 
-En prenant en compte l'indentation, chaque ligne de code PHP **ne devrait pas faire plus de 80 caractères** de long. Cette limite, correspondant à la largeur maximale des terminaux standards récents (en caractères), est également présente dans de nombreux autres guides de style pour de nombreux langages.  
+En prenant en compte l'indentation, chaque ligne de code PHP **ne devrait pas faire plus de 80 caractères** de long. Cette limite correspond à la largeur maximale des terminaux standards récents (en caractères).  
   
 Il convient de la respecter afin de permettre à tout contributeur, peu importe son outil d'écriture de code, de pouvoir lire comfortablement chaque instruction.
 
@@ -268,12 +279,14 @@ Respectez si possible le modèle suivant lors de la déclaration de vos classes 
 ```php  
 <?php
 
-class Log               // 
-class Net_Finger        // exemple avec modèle hiérarchique PEAR
-class HTML_Upload_Error //
+class Log               // exemple avec modèle hiérarchique PEAR
+class Net_Finger        // pour illustrer seulement, ne pas s'en
+class HTML_Upload_Error // servir si le projet ne le demande pas
 
 class AMoreCompleteExample
 {
+    // D'abord les propriétés puis les méthodes, par accessibilité
+    // public en premier, protected ensuite, et private pour finir
     public $counter;                // propriété publique
     function connect();             // - - -
     function getData();             // méthodes publiques
